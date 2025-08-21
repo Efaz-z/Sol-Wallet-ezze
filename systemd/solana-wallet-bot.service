@@ -1,1 +1,17 @@
+[Unit]
+Description=Solana Wallet Telegram Bot (Lightweight)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/sol_wallet_bot
+ExecStart=/usr/bin/python3 -u main.py
+Restart=always
+RestartSec=5
+User=ubuntu
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
 
